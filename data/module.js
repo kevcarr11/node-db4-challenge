@@ -14,10 +14,12 @@ function getShoppingList(recipeId) {
   return db('ingredients')
     .join('recipes_ingredients as map', 'map.ingredient_id', 'id')
     .where({ recipe_id: recipeId })
+    .select('id', 'name', 'recipe_id', 'quantity')
 }
 
 function getInstructions(recipeId) {
   return db ('steps')
     .from('instructions')
     .where({recipe_id: recipeId})
+    
 }

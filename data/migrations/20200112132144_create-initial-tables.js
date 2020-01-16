@@ -30,7 +30,7 @@ exports.up = async function(knex) {
       .notNullable()
       .references("id")
       .inTable("ingredients")
-    table.float("quantity")
+    table.string("quantity")
       .notNullable()
     table.primary(["recipe_id", "ingredient_id"])
   })
